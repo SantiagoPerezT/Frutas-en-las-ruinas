@@ -1,0 +1,46 @@
+# Godot 4 caches and local editor state
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+
+# .NET build products and local IDE state
+backend/bin/
+backend/obj/
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Local credentials and databases
+.env
+.env.*
+!.env.example
+appsettings.*.json
+appsettings.json
+!appsettings.example.json
+launchSettings.json
+*.pfx
+*.p12
+*.pem
+*.key
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+
+# Generated scratch files, local exports and video render caches
+tmp/
+output/
+node_modules/
+.hyperframes/
+docs/videos/encoder-tools/
+docs/videos/font-tools/
+docs/videos/source/*/renders/
+*.log
+
+# Windows and macOS filesystem metadata
+Thumbs.db
+Desktop.ini
+.DS_Store

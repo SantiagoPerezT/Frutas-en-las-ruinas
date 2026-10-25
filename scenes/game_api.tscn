@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game_api.gd" id="api"]
+
+[node name="GameApi" type="Node"]
+script = ExtResource("api")
+
+[node name="QueueRequest" type="HTTPRequest" parent="."]
+
+[node name="LeaderboardRequest" type="HTTPRequest" parent="."]
+
+[node name="RetryTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

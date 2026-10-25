@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fruta en las Ruinas · Archivo de expediciones</title>
+  <meta name="description" content="Consulta tiempos por nivel, reproduce recorridos de jugadores y explora mapas de la comunidad en Fruta en las Ruinas.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/analytics.css">
+  <script src="/app.js" defer></script>
+  <script src="/analytics.js" defer></script>
+</head>
+<body>
+  <div class="sun" aria-hidden="true"></div>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="Fruta en las Ruinas, inicio"><span class="brand-mark" aria-hidden="true">✦</span> FRUTA <span>EN LAS RUINAS</span></a>
+    <nav aria-label="Secciones">
+      <a href="#records">Récords</a>
+      <a href="#replays">Recorridos</a>
+      <a href="#analytics">Análisis</a>
+      <a href="#activity">Actividad</a>
+      <a href="#maps">Mapas</a>
+    </nav>
+    <span class="server-status" id="server-status" aria-live="polite"><span class="status-dot"></span> Conectando</span>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">ARCHIVO DE EXPEDICIONES / TEMPORADA 01</p>
+        <h1>Cada segundo cuenta.<br><em>Cada fruta también.</em></h1>
+        <p>Un lugar para seguir las expediciones de cada jugador: tiempos, coleccionables, monedas y niveles creados en el mapa.</p>
+        <a class="primary-link" href="#records">VER TABLA DE TIEMPOS <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="mountain mountain-back"></div>
+        <div class="mountain mountain-front"></div>
+        <div class="pixel-fruit"><span></span></div>
+        <div class="platform platform-one"></div>
+        <div class="platform platform-two"></div>
+        <div class="flag-pole"></div>
+        <div class="flag"></div>
+      </div>
+    </section>
+
+    <section class="stats-band" aria-label="Estadísticas generales">
+      <div class="stats-grid wrap">
+        <div class="stat"><span>PARTIDAS</span><strong id="stat-sessions">—</strong></div>
+        <div class="stat"><span>NIVELES TERMINADOS</span><strong id="stat-runs">—</strong></div>
+        <div class="stat"><span>FRUTAS</span><strong id="stat-fruits">—</strong></div>
+        <div class="stat"><span>MONEDAS</span><strong id="stat-coins">—</strong></div>
+        <div class="stat"><span>MAPAS CREADOS</span><strong id="stat-maps">—</strong></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="records">
+      <div class="section-heading"><div><p class="eyebrow">01 / CONTRARRELOJ</p><h2>Tabla de tiempos</h2><p>Los diez mejores tiempos de cada nivel y categoría.</p></div><div class="section-symbol" aria-hidden="true">◷</div></div>
+      <div class="leaderboard-card">
+        <div class="filters">
+          <label for="level-select">NIVEL</label>
+          <select id="level-select">
+            <option value="1">01 · Ruinas del huerto</option>
+            <option value="2">02 · Bosque esmeralda</option>
+            <option value="3">03 · Dunas del sol</option>
+            <option value="4">04 · Cumbres de cristal</option>
+          </select>
+          <div class="category-buttons" role="group" aria-label="Categoría">
+            <button type="button" class="active" data-category="any_percent" aria-pressed="true">ANY%</button>
+            <button type="button" data-category="all_fruits" aria-pressed="false">TODAS LAS FRUTAS</button>
+          </div>
+        </div>
+        <p class="category-note" id="category-note">Any%: termina con menos frutas que el total de ese nivel.</p>
+        <div class="table-scroll"><table><thead><tr><th>POS.</th><th>JUGADOR</th><th>TIEMPO</th><th>FRUTAS</th><th>MONEDAS</th><th>PARTIDA</th></tr></thead><tbody id="leaderboard-body"><tr><td colspan="6" class="empty">Cargando tiempos…</td></tr></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="section wrap replay-section" id="replays">
+      <div class="section-heading"><div><p class="eyebrow">02 / RUTAS Y REINTENTOS</p><h2>Recorrido de cada partida</h2><p>Selecciona una expedición y sigue sus posiciones, objetos, caídas y regreso al inicio.</p></div><div class="section-symbol" aria-hidden="true">⌁</div></div>
+      <div class="replay-shell">
+        <aside class="replay-sidebar" aria-label="Partidas disponibles">
+          <div class="replay-filter-row">
+            <label for="replay-map-filter">MAPA</label>
+            <select id="replay-map-filter">
+              <option value="all">Todos</option>
+              <option value="level:1">01 · Ruinas del huerto</option>
+              <option value="level:2">02 · Bosque esmeralda</option>
+              <option value="level:3">03 · Dunas del sol</option>
+              <option value="level:4">04 · Cumbres de cristal</option>
+            </select>
+            <label for="replay-player-filter">JUGADOR</label>
+            <input id="replay-player-filter" type="search" placeholder="Buscar nombre" autocomplete="off">
+          </div>
+          <div id="replay-list" class="replay-list" aria-live="polite"><p class="empty">Cargando partidas…</p></div>
+        </aside>
+        <div class="replay-main">
+          <div class="replay-head">
+            <div><span class="micro-label">VISOR DE EXPEDICIONES</span><h3 id="replay-title">Selecciona una partida</h3><p id="replay-subtitle">La ruta se dibuja con las posiciones que registró el juego.</p></div>
+            <span id="replay-result" class="replay-result">SIN SELECCIÓN</span>
+          </div>
+          <div class="replay-stage">
+            <canvas id="replay-canvas" width="960" height="540" role="img" aria-label="Mapa y recorrido del jugador"></canvas>
+            <div id="replay-stage-message" class="stage-message">Elige una partida para ver el mapa y reproducirla.</div>
+          </div>
+          <div class="replay-overview"><canvas id="replay-overview" width="960" height="108" role="img" aria-label="Vista completa del mapa y su recorrido"></canvas><span>MAPA COMPLETO</span></div>
+          <div class="replay-controls">
+            <button type="button" id="replay-play" aria-label="Reproducir recorrido" disabled>▶ REPRODUCIR</button>
+            <label class="sr-only" for="replay-seek">Posición temporal</label>
+            <input id="replay-seek" type="range" min="0" max="1000" value="0" disabled>
+            <span id="replay-clock">00:00.000 / 00:00.000</span>
+            <label class="sr-only" for="replay-speed">Velocidad de reproducción</label>
+            <select id="replay-speed"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option></select>
+          </div>
+          <div class="replay-bottom">
+            <div id="replay-summary" class="replay-summary"><span>Elige una partida para ver sus estadísticas.</span></div>
+            <div class="replay-event-column"><h4>HITOS DE LA PARTIDA</h4><ol id="replay-events" class="replay-events"><li class="empty">Sin partida seleccionada.</li></ol></div>
+          </div>
+          <p class="replay-disclaimer">La trayectoria interpola muestras de posición tomadas durante el juego. Morir y reaparecer no reinicia el cronómetro; el botón Reintentar crea otra partida.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap analytics-section" id="analytics">
+      <div class="section-heading"><div><p class="eyebrow">03 / OBSERVATORIO</p><h2>El mapa cuenta otra historia</h2><p>Encuentra las zonas de más muertes, los rebotes frecuentes y compara el tiempo de cada partida y mapa.</p></div><div class="section-symbol" aria-hidden="true">◎</div></div>
+      <div class="analytics-shell">
+        <div class="analytics-toolbar">
+          <div class="analytics-map-picker"><label for="analytics-map-select">MAPA PARA EXPLORAR</label><select id="analytics-map-select"><option value="level:1">01 · Ruinas del huerto</option><option value="level:2">02 · Bosque esmeralda</option><option value="level:3">03 · Dunas del sol</option><option value="level:4">04 · Cumbres de cristal</option></select></div>
+          <p id="analytics-scope">Cargando datos del mapa…</p>
+          <button type="button" id="analytics-refresh">ACTUALIZAR ↻</button>
+        </div>
+        <div class="analytics-kpis" aria-label="Indicadores del mapa">
+          <div><span>MUERTES REGISTRADAS</span><strong id="analytics-deaths-total">—</strong></div>
+          <div><span>REBOTES REGISTRADOS</span><strong id="analytics-bounces-total">—</strong></div>
+          <div><span>PARTIDAS EN ESTE MAPA</span><strong id="analytics-attempts-total">—</strong></div>
+          <div><span>TIEMPO MEDIO AL TERMINAR</span><strong id="analytics-avg-time">—</strong></div>
+        </div>
+        <div class="analytics-spatial">
+          <div class="analytics-spatial-main">
+            <div class="analytics-panel-head"><div><span class="micro-label">ZONAS DE RIESGO Y MOVIMIENTO</span><h3>¿Dónde sucede?</h3></div><div class="analytics-layer-switch" role="group" aria-label="Datos sobre el mapa"><button type="button" data-analytics-layer="deaths" class="active" aria-pressed="true">✕ MUERTES</button><button type="button" data-analytics-layer="trampolines" aria-pressed="false">↥ TRAMPOLINES</button></div></div>
+            <div class="analytics-map-scroll"><canvas id="analytics-map-canvas" width="1440" height="270" role="img" aria-label="Mapa con zonas de mayor actividad"></canvas></div>
+            <p class="analytics-map-note" id="analytics-map-note">Cada círculo representa una zona aproximada de 64 píxeles; su tamaño y número indican cuántos eventos ocurrieron allí. Las caídas fuera del mapa aparecen en el borde inferior.</p>
+          </div>
+          <aside class="analytics-hotspot-panel"><span class="micro-label">MAYOR FRECUENCIA</span><h3 id="analytics-hotspot-title">Muertes por zona</h3><ol id="analytics-hotspot-list"><li class="empty">Cargando zonas…</li></ol><p>Los conteos representan eventos. Un jugador puede aparecer varias veces en la misma zona.</p></aside>
+        </div>
+        <article class="analytics-comparison" aria-labelledby="analytics-comparison-title">
+          <div class="analytics-panel-head">
+            <div><span class="micro-label">CURVA ENTRE NIVELES</span><h3 id="analytics-comparison-title">Compara los mapas</h3></div>
+            <div class="analytics-chart-picker"><label for="analytics-chart-metric">DATO EN LA GRÁFICA</label><select id="analytics-chart-metric"><option value="average">Tiempo promedio al terminar</option><option value="best">Mejor tiempo</option><option value="completed">Partidas terminadas</option><option value="deaths">Muertes registradas</option><option value="bounces">Rebotes registrados</option></select></div>
+          </div>
+          <p class="analytics-comparison-note" id="analytics-chart-description">Promedio de partidas terminadas por mapa. La muestra aparece junto a cada barra.</p>
+          <div id="analytics-comparison-chart" class="analytics-comparison-chart" aria-live="polite"><p class="empty">Cargando comparación…</p></div>
+          <p class="analytics-comparison-footnote" id="analytics-comparison-footnote">Selecciona una barra para explorar ese mapa. Un mayor tiempo puede indicar un nivel más largo o más difícil; compara también muertes y tamaño de muestra.</p>
+        </article>
+        <div class="analytics-times">
+          <article class="analytics-time-panel">
+            <div class="analytics-panel-head"><div><span class="micro-label">COMPARA ESCENARIOS</span><h3>Tiempo por mapa</h3></div></div>
+            <p class="analytics-panel-description">Promedio y mejor marca de partidas terminadas. Selecciona una fila para examinar ese mapa.</p>
+            <div id="analytics-map-times" class="analytics-map-times"><p class="empty">Cargando tiempos…</p></div>
+          </article>
+          <article class="analytics-time-panel">
+            <div class="analytics-panel-head"><div><span class="micro-label">HISTORIAL DE JUGADORES</span><h3>Tiempo por partida</h3></div></div>
+            <div class="analytics-player-filter"><label for="analytics-player-search">JUGADOR EN PARTIDAS</label><input id="analytics-player-search" type="search" placeholder="Busca un nombre" autocomplete="off"><span id="analytics-attempt-range"></span></div>
+            <div class="analytics-attempt-scroll"><table><thead><tr><th>JUGADOR / FECHA</th><th>TIEMPO</th><th>RESULTADO</th><th>EVENTOS</th><th>RUTA</th></tr></thead><tbody id="analytics-attempt-times"><tr><td colspan="5" class="empty">Cargando partidas…</td></tr></tbody></table></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="activity">
+      <div class="section-heading"><div><p class="eyebrow">04 / DIARIO DE VIAJE</p><h2>Actividad reciente</h2><p>Los últimos niveles terminados y acciones registradas.</p></div><div class="section-symbol" aria-hidden="true">✶</div></div>
+      <div class="activity-grid">
+        <article class="panel"><h3>ÚLTIMAS LLEGADAS</h3><ol id="recent-runs" class="feed"><li class="empty">Cargando…</li></ol></article>
+        <article class="panel"><h3>EVENTOS</h3><ol id="recent-events" class="feed"><li class="empty">Cargando…</li></ol></article>
+      </div>
+    </section>
+
+    <section class="section wrap maps-section" id="maps">
+      <div class="section-heading"><div><p class="eyebrow">05 / NUEVAS RUTAS</p><h2>Mapas de la comunidad</h2><p>Explora visualmente los escenarios creados con Map Maker y guardados en SQL Server.</p></div><div class="section-symbol" aria-hidden="true">▦</div></div>
+      <div id="maps-list" class="maps-grid"><p class="empty">Cargando mapas…</p></div>
+      <div id="map-detail" class="map-detail" hidden>
+        <div class="map-detail-head"><div><span class="micro-label" id="map-detail-number">MAPA</span><h3 id="map-detail-title">Mapa comunitario</h3><p id="map-detail-meta"></p></div><button type="button" id="map-detail-replays">VER SUS PARTIDAS ↗</button></div>
+        <canvas id="map-detail-canvas" width="960" height="540" role="img" aria-label="Vista del mapa comunitario seleccionado"></canvas>
+        <p class="map-detail-legend">● Inicio &nbsp; ⚑ Meta &nbsp; ◆ Frutas &nbsp; ◉ Monedas &nbsp; ✺ Sierras</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap"><span>FRUTA EN LAS RUINAS</span><span>Datos de SQL Server · Actualización automática</span></div></footer>
+</body>
+</html>

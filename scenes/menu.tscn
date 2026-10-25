@@ -1,0 +1,243 @@
+[gd_scene format=3 uid="uid://bs1db18tfg7m2"]
+
+[node name="Menu" type="CanvasLayer" unique_id=341559801]
+
+[node name="Overlay" type="Control" parent="." unique_id=468039443]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Backdrop" type="ColorRect" parent="Overlay" unique_id=751642850]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.071, 0.102, 0.157, 1)
+
+[node name="Glow" type="ColorRect" parent="Overlay" unique_id=1735599282]
+layout_mode = 0
+offset_top = 390.0
+offset_right = 960.0
+offset_bottom = 540.0
+mouse_filter = 2
+color = Color(0.122, 0.239, 0.294, 0.46)
+
+[node name="MainPanel" type="Panel" parent="Overlay" unique_id=1846755312]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 40.0
+offset_right = 780.0
+offset_bottom = 500.0
+
+[node name="Title" type="Label" parent="Overlay/MainPanel" unique_id=495833541]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 20.0
+offset_right = 555.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(1, 0.914, 0.69, 1)
+theme_override_font_sizes/font_size = 32
+text = "FRUTA EN LAS RUINAS"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Overlay/MainPanel" unique_id=312176641]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 73.0
+offset_right = 530.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.749, 0.835, 0.859, 1)
+theme_override_font_sizes/font_size = 15
+text = "4 MUNDOS  ·  2 CATEGORÍAS DE VELOCIDAD"
+horizontal_alignment = 1
+
+[node name="PlayerNameLabel" type="Label" parent="Overlay/MainPanel" unique_id=1312201695]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 130.0
+offset_right = 215.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(1, 0.953, 0.851, 1)
+text = "Nombre en la tabla"
+
+[node name="PlayerName" type="LineEdit" parent="Overlay/MainPanel" unique_id=1136638369]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 121.0
+offset_right = 510.0
+offset_bottom = 160.0
+text = "Jugador"
+placeholder_text = "Jugador"
+max_length = 20
+
+[node name="StoryButton" type="Button" parent="Overlay/MainPanel"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 185.0
+offset_right = 410.0
+offset_bottom = 228.0
+focus_mode = 0
+text = "MODO HISTORIA"
+
+[node name="StartButton" type="Button" parent="Overlay/MainPanel" unique_id=521425502]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 238.0
+offset_right = 410.0
+offset_bottom = 281.0
+focus_mode = 0
+text = "JUEGO LIBRE"
+
+[node name="MapMakerButton" type="Button" parent="Overlay/MainPanel"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 291.0
+offset_right = 410.0
+offset_bottom = 334.0
+focus_mode = 0
+text = "CREADOR DE MAPAS"
+
+[node name="LeaderboardButton" type="Button" parent="Overlay/MainPanel" unique_id=1787955211]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 344.0
+offset_right = 410.0
+offset_bottom = 387.0
+focus_mode = 0
+text = "TABLA DE TIEMPOS"
+
+[node name="QuitButton" type="Button" parent="Overlay/MainPanel" unique_id=1180459098]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 397.0
+offset_right = 410.0
+offset_bottom = 440.0
+focus_mode = 0
+text = "SALIR"
+
+[node name="LeaderboardPanel" type="Panel" parent="Overlay" unique_id=1413802857]
+visible = false
+layout_mode = 0
+offset_left = 145.0
+offset_top = 35.0
+offset_right = 815.0
+offset_bottom = 505.0
+
+[node name="LeaderboardTitle" type="Label" parent="Overlay/LeaderboardPanel" unique_id=689168194]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 20.0
+offset_right = 630.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(1, 0.914, 0.69, 1)
+theme_override_font_sizes/font_size = 28
+text = "MEJORES TIEMPOS"
+horizontal_alignment = 1
+
+[node name="AnyPercentButton" type="Button" parent="Overlay/LeaderboardPanel" unique_id=1854816507]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 108.0
+offset_right = 274.0
+offset_bottom = 148.0
+focus_mode = 0
+text = "Any% · menos del 100%"
+
+[node name="AllFruitsButton" type="Button" parent="Overlay/LeaderboardPanel" unique_id=618348123]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 108.0
+offset_right = 586.0
+offset_bottom = 148.0
+focus_mode = 0
+text = "Todas las frutas"
+
+[node name="RecordLevel1" type="Button" parent="Overlay/LeaderboardPanel" unique_id=2059666168]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 64.0
+offset_right = 174.0
+offset_bottom = 99.0
+focus_mode = 0
+text = "NIVEL 1"
+
+[node name="RecordLevel2" type="Button" parent="Overlay/LeaderboardPanel" unique_id=1942891859]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 64.0
+offset_right = 324.0
+offset_bottom = 99.0
+focus_mode = 0
+text = "NIVEL 2"
+
+[node name="RecordLevel3" type="Button" parent="Overlay/LeaderboardPanel" unique_id=1050274594]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 64.0
+offset_right = 474.0
+offset_bottom = 99.0
+focus_mode = 0
+text = "NIVEL 3"
+
+[node name="RecordLevel4" type="Button" parent="Overlay/LeaderboardPanel" unique_id=117329971]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 64.0
+offset_right = 624.0
+offset_bottom = 99.0
+focus_mode = 0
+text = "NIVEL 4"
+
+[node name="CategoryDescription" type="Label" parent="Overlay/LeaderboardPanel" unique_id=1523471181]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 154.0
+offset_right = 622.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0.749, 0.835, 0.859, 1)
+text = "Nivel 1: completa este nivel con menos de 13 frutas."
+horizontal_alignment = 1
+
+[node name="RecordsHeader" type="Label" parent="Overlay/LeaderboardPanel" unique_id=456176086]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 192.0
+offset_right = 596.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(1, 0.914, 0.69, 1)
+theme_override_font_sizes/font_size = 15
+text = "#       NOMBRE                                      TIEMPO"
+
+[node name="RecordsList" type="Label" parent="Overlay/LeaderboardPanel" unique_id=915502122]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 222.0
+offset_right = 596.0
+offset_bottom = 398.0
+theme_override_colors/font_color = Color(1, 0.953, 0.851, 1)
+theme_override_font_sizes/font_size = 16
+text = "01    —                                                               —
+02    —                                                               —
+03    —                                                               —
+04    —                                                               —
+05    —                                                               —
+06    —                                                               —
+07    —                                                               —
+08    —                                                               —
+09    —                                                               —
+10    —                                                               —"
+
+[node name="BackButton" type="Button" parent="Overlay/LeaderboardPanel" unique_id=1928889616]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 414.0
+offset_right = 430.0
+offset_bottom = 457.0
+focus_mode = 0
+text = "VOLVER AL MENÚ"

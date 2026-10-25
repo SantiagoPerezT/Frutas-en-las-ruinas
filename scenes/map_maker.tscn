@@ -1,0 +1,236 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/map_maker.gd" id="editor"]
+[ext_resource type="Script" path="res://scripts/map_maker_canvas.gd" id="canvas"]
+
+[node name="MapMaker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("editor")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.07, 0.1, 0.16, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 360.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(1, 0.91, 0.69, 1)
+theme_override_font_sizes/font_size = 26
+text = "CREADOR DE MAPAS"
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 51.0
+offset_right = 550.0
+offset_bottom = 77.0
+theme_override_colors/font_color = Color(0.75, 0.84, 0.9, 1)
+theme_override_font_sizes/font_size = 13
+text = "Clic para colocar · Seleccionar para arrastrar · Clic derecho para borrar"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 553.0
+offset_top = 14.0
+offset_right = 638.0
+offset_bottom = 55.0
+text = "VOLVER"
+
+[node name="NewButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 14.0
+offset_right = 736.0
+offset_bottom = 55.0
+text = "NUEVO"
+
+[node name="TestButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 14.0
+offset_right = 834.0
+offset_bottom = 55.0
+text = "PROBAR"
+
+[node name="SaveButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 844.0
+offset_top = 14.0
+offset_right = 945.0
+offset_bottom = 55.0
+text = "GUARDAR"
+
+[node name="CanvasPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 91.0
+offset_right = 652.0
+offset_bottom = 451.0
+clip_contents = true
+mouse_filter = 0
+script = ExtResource("canvas")
+
+[node name="WorldPreview" type="Node2D" parent="CanvasPanel"]
+scale = Vector2(0.666667, 0.666667)
+
+[node name="Platforms" type="Node2D" parent="CanvasPanel/WorldPreview"]
+
+[node name="Fruits" type="Node2D" parent="CanvasPanel/WorldPreview"]
+
+[node name="Coins" type="Node2D" parent="CanvasPanel/WorldPreview"]
+
+[node name="Saws" type="Node2D" parent="CanvasPanel/WorldPreview"]
+
+[node name="Trampolines" type="Node2D" parent="CanvasPanel/WorldPreview"]
+
+[node name="Markers" type="Node2D" parent="CanvasPanel/WorldPreview"]
+
+[node name="EditorPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 91.0
+offset_right = 948.0
+offset_bottom = 451.0
+
+[node name="MapNameLabel" type="Label" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 270.0
+offset_bottom = 29.0
+text = "NOMBRE DEL MAPA"
+
+[node name="MapName" type="LineEdit" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 29.0
+offset_right = 270.0
+offset_bottom = 59.0
+placeholder_text = "Mi nuevo nivel"
+max_length = 80
+
+[node name="ThemeLabel" type="Label" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 65.0
+offset_right = 270.0
+offset_bottom = 84.0
+text = "TEMA"
+
+[node name="ThemeOption" type="OptionButton" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 84.0
+offset_right = 270.0
+offset_bottom = 113.0
+
+[node name="ToolLabel" type="Label" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 116.0
+offset_right = 270.0
+offset_bottom = 137.0
+text = "HERRAMIENTA"
+
+[node name="ToolOption" type="OptionButton" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 138.0
+offset_right = 270.0
+offset_bottom = 168.0
+
+[node name="WidthLabel" type="Label" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 172.0
+offset_right = 130.0
+offset_bottom = 192.0
+text = "Ancho plataforma"
+
+[node name="HeightLabel" type="Label" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 172.0
+offset_right = 270.0
+offset_bottom = 192.0
+text = "Alto plataforma"
+
+[node name="PlatformWidth" type="SpinBox" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 194.0
+offset_right = 130.0
+offset_bottom = 224.0
+min_value = 24.0
+max_value = 960.0
+step = 24.0
+value = 144.0
+
+[node name="PlatformHeight" type="SpinBox" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 194.0
+offset_right = 270.0
+offset_bottom = 224.0
+min_value = 24.0
+max_value = 540.0
+step = 24.0
+value = 24.0
+
+[node name="SavedMapsLabel" type="Label" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 228.0
+offset_right = 270.0
+offset_bottom = 249.0
+text = "MAPAS EN LA BASE DE DATOS"
+
+[node name="SavedMaps" type="ItemList" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 249.0
+offset_right = 270.0
+offset_bottom = 307.0
+
+[node name="RefreshButton" type="Button" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 311.0
+offset_right = 134.0
+offset_bottom = 346.0
+text = "ACTUALIZAR"
+
+[node name="LoadButton" type="Button" parent="EditorPanel"]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 311.0
+offset_right = 270.0
+offset_bottom = 346.0
+text = "CARGAR"
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 466.0
+offset_right = 943.0
+offset_bottom = 526.0
+theme_override_colors/font_color = Color(0.77, 0.88, 0.79, 1)
+theme_override_font_sizes/font_size = 15
+text = "Crea un mapa nuevo o carga uno guardado. Los datos se guardan en SQL Server."
+autowrap_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]

@@ -1,0 +1,566 @@
+[gd_scene format=3 uid="uid://ch2iwnh5esmvy"]
+
+[ext_resource type="Texture2D" uid="uid://d4dkdqxujsb2m" path="res://Assets/Background/Brown.png" id="background"]
+[ext_resource type="PackedScene" path="res://scenes/coin.tscn" id="coin"]
+[ext_resource type="Texture2D" uid="uid://d1os1bx3csy2l" path="res://Assets/Items/Fruits/Apple.png" id="fruit"]
+[ext_resource type="Texture2D" uid="uid://dy5n6ehlqkvsk" path="res://Assets/Items/Checkpoints/End/End (Idle).png" id="goal"]
+[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="platform"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="player"]
+[ext_resource type="Texture2D" uid="uid://diuunaljnirm8" path="res://Assets/Traps/Saw/On (38x38).png" id="saw"]
+[ext_resource type="Script" uid="uid://dtvri1010wy8c" path="res://scripts/scenery.gd" id="scenery"]
+[ext_resource type="Texture2D" uid="uid://cbb11rqhwmqvn" path="res://Assets/Traps/Trampoline/Idle.png" id="trampoline"]
+
+[sub_resource type="AtlasTexture" id="SawAtlas"]
+atlas = ExtResource("saw")
+region = Rect2(0, 0, 38, 38)
+
+[node name="Ruinasdelhuerto" type="Node2D" unique_id=1706032969]
+
+[node name="Scenery" type="Node2D" parent="." unique_id=1911268612]
+z_index = -10
+script = ExtResource("scenery")
+background_texture = ExtResource("background")
+level_width = 2880.0
+
+[node name="Platforms" type="Node2D" parent="." unique_id=1582365787]
+
+[node name="Platform01" parent="Platforms" unique_id=1582386604 instance=ExtResource("platform")]
+position = Vector2(20, 460)
+platform_size = Vector2(240, 55)
+
+[node name="Platform02" parent="Platforms" unique_id=366901385 instance=ExtResource("platform")]
+position = Vector2(300, 460)
+platform_size = Vector2(210, 55)
+
+[node name="Platform03" parent="Platforms" unique_id=327869575 instance=ExtResource("platform")]
+position = Vector2(550, 460)
+platform_size = Vector2(390, 55)
+
+[node name="Platform04" parent="Platforms" unique_id=1065535840 instance=ExtResource("platform")]
+position = Vector2(20, 390)
+platform_size = Vector2(130, 70)
+
+[node name="Platform05" parent="Platforms" unique_id=1000524106 instance=ExtResource("platform")]
+position = Vector2(780, 220)
+platform_size = Vector2(160, 240)
+
+[node name="Platform06" parent="Platforms" unique_id=725403310 instance=ExtResource("platform")]
+position = Vector2(172, 370)
+platform_size = Vector2(125, 30)
+
+[node name="Platform07" parent="Platforms" unique_id=1275335828 instance=ExtResource("platform")]
+position = Vector2(375, 335)
+platform_size = Vector2(150, 30)
+
+[node name="Platform08" parent="Platforms" unique_id=72557770 instance=ExtResource("platform")]
+position = Vector2(577, 366)
+platform_size = Vector2(120, 30)
+
+[node name="Platform09" parent="Platforms" unique_id=457271632 instance=ExtResource("platform")]
+position = Vector2(740, 310)
+platform_size = Vector2(120, 30)
+
+[node name="Platform10" parent="Platforms" unique_id=29719056 instance=ExtResource("platform")]
+position = Vector2(381, 234)
+platform_size = Vector2(115, 28)
+
+[node name="Platform11" parent="Platforms" unique_id=123740807 instance=ExtResource("platform")]
+position = Vector2(570, 180)
+
+[node name="Platform12" parent="Platforms" unique_id=637447271 instance=ExtResource("platform")]
+position = Vector2(233, 175)
+platform_size = Vector2(105, 28)
+
+[node name="Platform13" parent="Platforms" unique_id=1019947771 instance=ExtResource("platform")]
+position = Vector2(1660, 460)
+platform_size = Vector2(240, 55)
+
+[node name="Platform14" parent="Platforms" unique_id=1367452572 instance=ExtResource("platform")]
+position = Vector2(1410, 460)
+platform_size = Vector2(210, 55)
+
+[node name="Platform15" parent="Platforms" unique_id=841712259 instance=ExtResource("platform")]
+position = Vector2(980, 460)
+platform_size = Vector2(390, 55)
+
+[node name="Platform16" parent="Platforms" unique_id=562706742 instance=ExtResource("platform")]
+position = Vector2(1770, 390)
+platform_size = Vector2(130, 70)
+
+[node name="Platform17" parent="Platforms" unique_id=1263562921 instance=ExtResource("platform")]
+position = Vector2(980, 220)
+platform_size = Vector2(160, 240)
+
+[node name="Platform18" parent="Platforms" unique_id=1759419439 instance=ExtResource("platform")]
+position = Vector2(1623, 370)
+platform_size = Vector2(125, 30)
+
+[node name="Platform19" parent="Platforms" unique_id=1175014973 instance=ExtResource("platform")]
+position = Vector2(1395, 335)
+platform_size = Vector2(150, 30)
+
+[node name="Platform20" parent="Platforms" unique_id=1164866526 instance=ExtResource("platform")]
+position = Vector2(1223, 366)
+platform_size = Vector2(120, 30)
+
+[node name="Platform21" parent="Platforms" unique_id=2032164427 instance=ExtResource("platform")]
+position = Vector2(1060, 310)
+platform_size = Vector2(120, 30)
+
+[node name="Platform22" parent="Platforms" unique_id=2107120554 instance=ExtResource("platform")]
+position = Vector2(1424, 234)
+platform_size = Vector2(115, 28)
+
+[node name="Platform23" parent="Platforms" unique_id=2134206198 instance=ExtResource("platform")]
+position = Vector2(1250, 180)
+
+[node name="Platform24" parent="Platforms" unique_id=1869054911 instance=ExtResource("platform")]
+position = Vector2(1582, 175)
+platform_size = Vector2(105, 28)
+
+[node name="Platform25" parent="Platforms" unique_id=1441856825 instance=ExtResource("platform")]
+position = Vector2(1940, 460)
+platform_size = Vector2(240, 55)
+
+[node name="Platform26" parent="Platforms" unique_id=1189368916 instance=ExtResource("platform")]
+position = Vector2(2220, 460)
+platform_size = Vector2(210, 55)
+
+[node name="Platform27" parent="Platforms" unique_id=727477760 instance=ExtResource("platform")]
+position = Vector2(2470, 460)
+platform_size = Vector2(390, 55)
+
+[node name="Platform28" parent="Platforms" unique_id=213315385 instance=ExtResource("platform")]
+position = Vector2(1940, 390)
+platform_size = Vector2(130, 70)
+
+[node name="Platform29" parent="Platforms" unique_id=977084517 instance=ExtResource("platform")]
+position = Vector2(2700, 220)
+platform_size = Vector2(160, 240)
+
+[node name="Platform30" parent="Platforms" unique_id=1166237534 instance=ExtResource("platform")]
+position = Vector2(2092, 370)
+platform_size = Vector2(125, 30)
+
+[node name="Platform31" parent="Platforms" unique_id=418221529 instance=ExtResource("platform")]
+position = Vector2(2295, 335)
+platform_size = Vector2(150, 30)
+
+[node name="Platform32" parent="Platforms" unique_id=1966576713 instance=ExtResource("platform")]
+position = Vector2(2497, 366)
+platform_size = Vector2(120, 30)
+
+[node name="Platform33" parent="Platforms" unique_id=1155166771 instance=ExtResource("platform")]
+position = Vector2(2660, 310)
+platform_size = Vector2(120, 30)
+
+[node name="Platform34" parent="Platforms" unique_id=1851455621 instance=ExtResource("platform")]
+position = Vector2(2301, 234)
+platform_size = Vector2(115, 28)
+
+[node name="Platform35" parent="Platforms" unique_id=160459807 instance=ExtResource("platform")]
+position = Vector2(2490, 180)
+
+[node name="Platform36" parent="Platforms" unique_id=1207869772 instance=ExtResource("platform")]
+position = Vector2(2153, 175)
+platform_size = Vector2(105, 28)
+
+[node name="Trampolines" type="Node2D" parent="." unique_id=494633779]
+
+[node name="Trampoline01" type="Sprite2D" parent="Trampolines" unique_id=1989476441 groups=["trampoline"]]
+position = Vector2(284, 355)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("trampoline")
+
+[node name="Trampoline02" type="Sprite2D" parent="Trampolines" unique_id=517916695 groups=["trampoline"]]
+position = Vector2(433, 319)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("trampoline")
+
+[node name="Trampoline03" type="Sprite2D" parent="Trampolines" unique_id=487751266 groups=["trampoline"]]
+position = Vector2(662, 351)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("trampoline")
+
+[node name="Trampoline04" type="Sprite2D" parent="Trampolines" unique_id=1521315422 groups=["trampoline"]]
+position = Vector2(1636, 355)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("trampoline")
+
+[node name="Trampoline05" type="Sprite2D" parent="Trampolines" unique_id=77023536 groups=["trampoline"]]
+position = Vector2(1487, 319)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("trampoline")
+
+[node name="Trampoline06" type="Sprite2D" parent="Trampolines" unique_id=1775346048 groups=["trampoline"]]
+position = Vector2(1258, 351)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("trampoline")
+
+[node name="Trampoline07" type="Sprite2D" parent="Trampolines" unique_id=1021670913 groups=["trampoline"]]
+position = Vector2(2204, 355)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("trampoline")
+
+[node name="Trampoline08" type="Sprite2D" parent="Trampolines" unique_id=1153148125 groups=["trampoline"]]
+position = Vector2(2353, 319)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("trampoline")
+
+[node name="Trampoline09" type="Sprite2D" parent="Trampolines" unique_id=254022113 groups=["trampoline"]]
+position = Vector2(2582, 351)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("trampoline")
+
+[node name="Saws" type="Node2D" parent="." unique_id=1732491796]
+
+[node name="Saw01" type="Sprite2D" parent="Saws" unique_id=1258079949 groups=["saw"]]
+position = Vector2(335, 436)
+texture = SubResource("SawAtlas")
+
+[node name="Saw02" type="Sprite2D" parent="Saws" unique_id=2092360160 groups=["saw"]]
+position = Vector2(543, 421)
+texture = SubResource("SawAtlas")
+
+[node name="Saw03" type="Sprite2D" parent="Saws" unique_id=839356501 groups=["saw"]]
+position = Vector2(747, 436)
+texture = SubResource("SawAtlas")
+
+[node name="Saw04" type="Sprite2D" parent="Saws" unique_id=1224304530 groups=["saw"]]
+position = Vector2(866, 280)
+texture = SubResource("SawAtlas")
+
+[node name="Saw05" type="Sprite2D" parent="Saws" unique_id=1583949347 groups=["saw"]]
+position = Vector2(457, 207)
+texture = SubResource("SawAtlas")
+
+[node name="Saw06" type="Sprite2D" parent="Saws" unique_id=1179433310 groups=["saw"]]
+position = Vector2(1585, 436)
+texture = SubResource("SawAtlas")
+
+[node name="Saw07" type="Sprite2D" parent="Saws" unique_id=1394688285 groups=["saw"]]
+position = Vector2(1377, 421)
+texture = SubResource("SawAtlas")
+
+[node name="Saw08" type="Sprite2D" parent="Saws" unique_id=522242062 groups=["saw"]]
+position = Vector2(1173, 436)
+texture = SubResource("SawAtlas")
+
+[node name="Saw09" type="Sprite2D" parent="Saws" unique_id=1169045702 groups=["saw"]]
+position = Vector2(1054, 280)
+texture = SubResource("SawAtlas")
+
+[node name="Saw10" type="Sprite2D" parent="Saws" unique_id=1990152355 groups=["saw"]]
+position = Vector2(1463, 207)
+texture = SubResource("SawAtlas")
+
+[node name="Saw11" type="Sprite2D" parent="Saws" unique_id=1373517240 groups=["saw"]]
+position = Vector2(2255, 436)
+texture = SubResource("SawAtlas")
+
+[node name="Saw12" type="Sprite2D" parent="Saws" unique_id=1862394516 groups=["saw"]]
+position = Vector2(2463, 421)
+texture = SubResource("SawAtlas")
+
+[node name="Saw13" type="Sprite2D" parent="Saws" unique_id=971793485 groups=["saw"]]
+position = Vector2(2667, 436)
+texture = SubResource("SawAtlas")
+
+[node name="Saw14" type="Sprite2D" parent="Saws" unique_id=1721537607 groups=["saw"]]
+position = Vector2(2786, 280)
+texture = SubResource("SawAtlas")
+
+[node name="Saw15" type="Sprite2D" parent="Saws" unique_id=632530945 groups=["saw"]]
+position = Vector2(2377, 207)
+texture = SubResource("SawAtlas")
+
+[node name="Fruits" type="Node2D" parent="." unique_id=910352957]
+
+[node name="Fruit01" type="Sprite2D" parent="Fruits" unique_id=1681156194 groups=["fruit"]]
+position = Vector2(250, 120)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Fruit02" type="Sprite2D" parent="Fruits" unique_id=1117445557 groups=["fruit"]]
+position = Vector2(155, 205)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="Fruit03" type="Sprite2D" parent="Fruits" unique_id=203405903 groups=["fruit"]]
+position = Vector2(210, 212)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="Fruit04" type="Sprite2D" parent="Fruits" unique_id=1213944248 groups=["fruit"]]
+position = Vector2(276, 145)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="Fruit05" type="Sprite2D" parent="Fruits" unique_id=1923668479 groups=["fruit"]]
+position = Vector2(332, 130)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(128, 0, 32, 32)
+
+[node name="Fruit06" type="Sprite2D" parent="Fruits" unique_id=1712874546 groups=["fruit"]]
+position = Vector2(405, 285)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(160, 0, 32, 32)
+
+[node name="Fruit07" type="Sprite2D" parent="Fruits" unique_id=1043025137 groups=["fruit"]]
+position = Vector2(460, 270)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(192, 0, 32, 32)
+
+[node name="Fruit08" type="Sprite2D" parent="Fruits" unique_id=1287957196 groups=["fruit"]]
+position = Vector2(617, 130)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(224, 0, 32, 32)
+
+[node name="Fruit09" type="Sprite2D" parent="Fruits" unique_id=1204056007 groups=["fruit"]]
+position = Vector2(675, 150)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(256, 0, 32, 32)
+
+[node name="Fruit10" type="Sprite2D" parent="Fruits" unique_id=633305611 groups=["fruit"]]
+position = Vector2(721, 248)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(288, 0, 32, 32)
+
+[node name="Fruit11" type="Sprite2D" parent="Fruits" unique_id=1609986611 groups=["fruit"]]
+position = Vector2(760, 260)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(320, 0, 32, 32)
+
+[node name="Fruit12" type="Sprite2D" parent="Fruits" unique_id=983472601 groups=["fruit"]]
+position = Vector2(824, 178)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(352, 0, 32, 32)
+
+[node name="Fruit13" type="Sprite2D" parent="Fruits" unique_id=14992853 groups=["fruit"]]
+position = Vector2(883, 165)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(384, 0, 32, 32)
+
+[node name="Fruit14" type="Sprite2D" parent="Fruits" unique_id=1841612492 groups=["fruit"]]
+position = Vector2(1670, 120)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(416, 0, 32, 32)
+
+[node name="Fruit15" type="Sprite2D" parent="Fruits" unique_id=1972370196 groups=["fruit"]]
+position = Vector2(1765, 205)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(448, 0, 32, 32)
+
+[node name="Fruit16" type="Sprite2D" parent="Fruits" unique_id=1192994547 groups=["fruit"]]
+position = Vector2(1710, 212)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(480, 0, 32, 32)
+
+[node name="Fruit17" type="Sprite2D" parent="Fruits" unique_id=1500103482 groups=["fruit"]]
+position = Vector2(1644, 145)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(512, 0, 32, 32)
+
+[node name="Fruit18" type="Sprite2D" parent="Fruits" unique_id=142320527 groups=["fruit"]]
+position = Vector2(1588, 130)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Fruit19" type="Sprite2D" parent="Fruits" unique_id=1120836004 groups=["fruit"]]
+position = Vector2(1515, 285)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="Fruit20" type="Sprite2D" parent="Fruits" unique_id=415123495 groups=["fruit"]]
+position = Vector2(1460, 270)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="Fruit21" type="Sprite2D" parent="Fruits" unique_id=2104767780 groups=["fruit"]]
+position = Vector2(1303, 130)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="Fruit22" type="Sprite2D" parent="Fruits" unique_id=1318007298 groups=["fruit"]]
+position = Vector2(1245, 150)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(128, 0, 32, 32)
+
+[node name="Fruit23" type="Sprite2D" parent="Fruits" unique_id=980073243 groups=["fruit"]]
+position = Vector2(1199, 248)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(160, 0, 32, 32)
+
+[node name="Fruit24" type="Sprite2D" parent="Fruits" unique_id=776908079 groups=["fruit"]]
+position = Vector2(1160, 260)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(192, 0, 32, 32)
+
+[node name="Fruit25" type="Sprite2D" parent="Fruits" unique_id=375901215 groups=["fruit"]]
+position = Vector2(1096, 178)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(224, 0, 32, 32)
+
+[node name="Fruit26" type="Sprite2D" parent="Fruits" unique_id=1455879231 groups=["fruit"]]
+position = Vector2(1037, 165)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(256, 0, 32, 32)
+
+[node name="Fruit27" type="Sprite2D" parent="Fruits" unique_id=1021355184 groups=["fruit"]]
+position = Vector2(2170, 120)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(288, 0, 32, 32)
+
+[node name="Fruit28" type="Sprite2D" parent="Fruits" unique_id=1061700019 groups=["fruit"]]
+position = Vector2(2075, 205)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(320, 0, 32, 32)
+
+[node name="Fruit29" type="Sprite2D" parent="Fruits" unique_id=1723740237 groups=["fruit"]]
+position = Vector2(2130, 212)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(352, 0, 32, 32)
+
+[node name="Fruit30" type="Sprite2D" parent="Fruits" unique_id=849304191 groups=["fruit"]]
+position = Vector2(2196, 145)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(384, 0, 32, 32)
+
+[node name="Fruit31" type="Sprite2D" parent="Fruits" unique_id=1864225457 groups=["fruit"]]
+position = Vector2(2252, 130)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(416, 0, 32, 32)
+
+[node name="Fruit32" type="Sprite2D" parent="Fruits" unique_id=1291797543 groups=["fruit"]]
+position = Vector2(2325, 285)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(448, 0, 32, 32)
+
+[node name="Fruit33" type="Sprite2D" parent="Fruits" unique_id=993939128 groups=["fruit"]]
+position = Vector2(2380, 270)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(480, 0, 32, 32)
+
+[node name="Fruit34" type="Sprite2D" parent="Fruits" unique_id=2020216012 groups=["fruit"]]
+position = Vector2(2537, 130)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(512, 0, 32, 32)
+
+[node name="Fruit35" type="Sprite2D" parent="Fruits" unique_id=1142482894 groups=["fruit"]]
+position = Vector2(2595, 150)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Fruit36" type="Sprite2D" parent="Fruits" unique_id=203117965 groups=["fruit"]]
+position = Vector2(2641, 248)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="Fruit37" type="Sprite2D" parent="Fruits" unique_id=899428363 groups=["fruit"]]
+position = Vector2(2680, 260)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="Fruit38" type="Sprite2D" parent="Fruits" unique_id=1766403196 groups=["fruit"]]
+position = Vector2(2744, 178)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
+[node name="Fruit39" type="Sprite2D" parent="Fruits" unique_id=35679100 groups=["fruit"]]
+position = Vector2(2680, 300)
+texture = ExtResource("fruit")
+region_enabled = true
+region_rect = Rect2(128, 0, 32, 32)
+
+[node name="Coins" type="Node2D" parent="." unique_id=993939375]
+
+[node name="Coin01" parent="Coins" unique_id=1585902941 instance=ExtResource("coin")]
+position = Vector2(103, 340)
+
+[node name="Coin02" parent="Coins" unique_id=1852111065 instance=ExtResource("coin")]
+position = Vector2(345, 295)
+
+[node name="Coin03" parent="Coins" unique_id=130061739 instance=ExtResource("coin")]
+position = Vector2(540, 275)
+
+[node name="Coin04" parent="Coins" unique_id=632518400 instance=ExtResource("coin")]
+position = Vector2(705, 300)
+
+[node name="Coin05" parent="Coins" unique_id=824230279 instance=ExtResource("coin")]
+position = Vector2(870, 168)
+
+[node name="Coin06" parent="Coins" unique_id=1229979900 instance=ExtResource("coin")]
+position = Vector2(1817, 340)
+
+[node name="Coin07" parent="Coins" unique_id=249441707 instance=ExtResource("coin")]
+position = Vector2(1575, 295)
+
+[node name="Coin08" parent="Coins" unique_id=301870085 instance=ExtResource("coin")]
+position = Vector2(1380, 275)
+
+[node name="Coin09" parent="Coins" unique_id=1310778581 instance=ExtResource("coin")]
+position = Vector2(1215, 300)
+
+[node name="Coin10" parent="Coins" unique_id=378937099 instance=ExtResource("coin")]
+position = Vector2(1050, 168)
+
+[node name="Coin11" parent="Coins" unique_id=2081363912 instance=ExtResource("coin")]
+position = Vector2(2023, 340)
+
+[node name="Coin12" parent="Coins" unique_id=1257924217 instance=ExtResource("coin")]
+position = Vector2(2265, 295)
+
+[node name="Coin13" parent="Coins" unique_id=1784165394 instance=ExtResource("coin")]
+position = Vector2(2460, 275)
+
+[node name="Coin14" parent="Coins" unique_id=2090790106 instance=ExtResource("coin")]
+position = Vector2(2625, 300)
+
+[node name="Coin15" parent="Coins" unique_id=1350877525 instance=ExtResource("coin")]
+position = Vector2(2756, 145)
+
+[node name="Goal" type="Sprite2D" parent="." unique_id=957710731 groups=["goal"]]
+position = Vector2(2815, 192)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("goal")
+
+[node name="Player" parent="." unique_id=462012477 instance=ExtResource("player")]
+position = Vector2(74, 350)

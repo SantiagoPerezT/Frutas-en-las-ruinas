@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, height=720">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Space Grotesk';src:url('assets/fonts/space-grotesk.woff2') format('woff2');font-style:normal;font-weight:300 800;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('assets/fonts/dm-mono-400.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('assets/fonts/dm-mono-500.woff2') format('woff2');font-style:normal;font-weight:500 700;font-display:swap}
+*{box-sizing:border-box}html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#102c27}
+body{font-family:'Space Grotesk',sans-serif;color:#eef4d4}
+#root{position:relative;width:1280px;height:720px;overflow:hidden}
+.scene{position:absolute;inset:0;width:1280px;height:720px;overflow:hidden;background:#102c27}
+#s1{z-index:1}#s2{z-index:2;opacity:0}#s3{z-index:3;opacity:0}
+.scene-content{width:100%;height:100%;padding:50px 60px 34px;display:flex;flex-direction:column;gap:24px}
+.topbar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #456c58;padding-bottom:18px}
+.brand{color:#e4c869;font:700 21px 'DM Mono',monospace;letter-spacing:.08em}
+.mark{display:inline-grid;place-items:center;width:30px;height:30px;margin-right:12px;color:#102c27;background:#e4c869}
+.chapter{font:16px 'DM Mono',monospace;color:#d5dfc5;letter-spacing:.1em}
+.bodyrow{display:flex;gap:32px;align-items:stretch;flex:1;min-height:0}
+.copy{width:370px;flex:none;display:flex;flex-direction:column;justify-content:center;padding-bottom:12px}
+.eyebrow{color:#e4c869;font:16px 'DM Mono',monospace;letter-spacing:.12em;margin:0 0 22px}
+h1{max-width:370px;font-size:67px;line-height:.97;letter-spacing:-.055em;font-weight:800;margin:0 0 27px}
+p{color:#d6e2d0;font-size:23px;line-height:1.36;font-weight:350;margin:0}
+.metric{display:flex;align-items:baseline;gap:13px;margin-top:28px;padding-top:16px;border-top:1px solid #456c58}
+.metric strong{color:#e4c869;font:700 42px 'DM Mono',monospace;font-variant-numeric:tabular-nums}
+.metric span{font:16px 'DM Mono',monospace;color:#d6e2d0}
+.browser{width:760px;height:462px;flex:none;align-self:center;overflow:hidden;border:2px solid #e4c869;background:#1c4035;box-shadow:13px 13px 0 #0a211b}
+.browserbar{height:33px;padding:8px 13px;display:flex;justify-content:space-between;color:#e4c869;border-bottom:1px solid #456c58;background:#1c4035;font:13px 'DM Mono',monospace;letter-spacing:.07em}
+.dots{letter-spacing:.22em}.viewport{width:756px;height:426px;overflow:hidden;position:relative}
+.viewport .full{display:block;width:756px;height:426px;object-fit:cover;image-rendering:pixelated}
+.viewport .crop{position:absolute;left:-140px;top:-100px;width:960px;height:540px;image-rendering:pixelated}
+.hero{position:absolute;left:0;top:0;width:48px;height:48px;image-rendering:pixelated}
+#buffer-hero{left:280px;top:50px}#coyote-hero{left:98px;top:224px}
+.key{position:absolute;left:510px;top:66px;padding:12px 17px;background:#e4c869;color:#102c27;font:700 21px 'DM Mono',monospace;box-shadow:5px 5px 0 #0a211b}
+.window-label{position:absolute;left:505px;top:126px;padding:9px 12px;border:2px solid #e4c869;background:#102c27;color:#eef4d4;font:17px 'DM Mono',monospace}
+.info{position:absolute;left:20px;bottom:20px;padding:10px 13px;background:#102c27;border:1px solid #e4c869;color:#eef4d4;font:16px 'DM Mono',monospace}
+.footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #456c58;padding-top:18px;font:15px 'DM Mono',monospace;color:#b6d0b7;letter-spacing:.04em}
+.footer strong{color:#e4c869;font-weight:500}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="jump-assist" data-start="0" data-duration="30" data-width="1280" data-height="720" data-track-index="0">
+<section id="s1" class="scene"><div class="scene-content">
+  <div id="s1top" class="topbar"><div class="brand"><span class="mark">✦</span>FRUTA EN LAS RUINAS</div><div class="chapter">01 / CONTROL DEL SALTO</div></div>
+  <div class="bodyrow"><div class="copy"><div id="s1e" class="eyebrow">DOS MEJORAS DE MOVIMIENTO</div><h1 id="s1h">El salto responde mejor.</h1><p id="s1p">Dos ventanas breves ayudan a que el salto ocurra cuando el jugador espera.</p><div id="s1m" class="metric"><strong>0,12 s</strong><span>buffering</span></div><div id="s1n" class="metric"><strong>0,10 s</strong><span>coyote time</span></div></div>
+  <div id="s1b" class="browser"><div class="browserbar"><span>CAPTURA REAL / NIVEL 1</span><span class="dots">● ● ●</span></div><div class="viewport"><img id="s1img" class="full" src="assets/ruins.png" alt="Captura real del primer nivel del juego"></div></div></div>
+  <div id="s1f" class="footer"><span>Visualización de los controles en el nivel real</span><strong>GODOT / PLAYER</strong></div>
+</div></section>
+<section id="s2" class="scene"><div class="scene-content">
+  <div id="s2top" class="topbar"><div class="brand"><span class="mark">✦</span>FRUTA EN LAS RUINAS</div><div class="chapter">02 / INPUT BUFFERING</div></div>
+  <div class="bodyrow"><div class="copy"><div id="s2e" class="eyebrow">ANTES DE ATERRIZAR</div><h1 id="s2h">Pulsa salto un poco antes.</h1><p id="s2p">Si no quedan saltos, el juego guarda la pulsación hasta 0,12 s y salta al tocar el suelo.</p><div id="s2m" class="metric"><strong>0,12 s</strong><span>entrada guardada</span></div></div>
+  <div id="s2b" class="browser"><div class="browserbar"><span>RUINAS / DEMOSTRACIÓN A CÁMARA LENTA</span><span class="dots">● ● ●</span></div><div class="viewport"><img class="crop" src="assets/ruins-buffer.png" alt="Recorte de una captura real del nivel"><img id="buffer-hero" class="hero" src="assets/player-buffer.png" alt="Sprite auténtico del jugador"><div id="buffer-key" class="key">ESPACIO ↓</div><div id="buffer-window" class="window-label">BUFFER · 0,12 s</div><div id="buffer-info" class="info">AL ATERRIZAR → SALTA</div></div></div></div>
+  <div id="s2f" class="footer"><span>Sprite animado sobre una captura real</span><strong>SECUENCIA EXPLICATIVA</strong></div>
+</div></section>
+<section id="s3" class="scene"><div class="scene-content">
+  <div id="s3top" class="topbar"><div class="brand"><span class="mark">✦</span>FRUTA EN LAS RUINAS</div><div class="chapter">03 / COYOTE TIME</div></div>
+  <div class="bodyrow"><div class="copy"><div id="s3e" class="eyebrow">DESPUÉS DEL BORDE</div><h1 id="s3h">Aún puedes saltar.</h1><p id="s3p">El salto de suelo sigue disponible durante 0,10 s tras abandonar la plataforma.</p><div id="s3m" class="metric"><strong>0,10 s</strong><span>de margen</span></div></div>
+  <div id="s3b" class="browser"><div class="browserbar"><span>RUINAS / DEMOSTRACIÓN A CÁMARA LENTA</span><span class="dots">● ● ●</span></div><div class="viewport"><img class="crop" src="assets/ruins-coyote.png" alt="Recorte de una captura real del nivel"><img id="coyote-hero" class="hero" src="assets/player-coyote.png" alt="Sprite auténtico del jugador"><div id="coyote-key" class="key">ESPACIO ↓</div><div id="coyote-window" class="window-label">COYOTE · 0,10 s</div><div id="coyote-info" class="info">SALE DEL BORDE → SALTA</div></div></div></div>
+  <div id="s3f" class="footer"><span>Ventanas efectivas: 0,12 s y 0,10 s</span><strong>FRUTA EN LAS RUINAS</strong></div>
+</div></section>
+<audio id="jump-buffer-sfx" data-start="14.45" data-duration="0.18" data-track-index="2" data-volume="0.85" src="assets/jump.wav"></audio>
+<audio id="jump-coyote-sfx" data-start="23.6" data-duration="0.18" data-track-index="2" data-volume="0.85" src="assets/jump.wav"></audio>
+</div>
+<script>
+window.__timelines=window.__timelines||{};
+const tl=gsap.timeline({paused:true});
+function enter(n,t){
+  tl.from('#s'+n+'top',{y:-28,opacity:0,duration:.66,ease:'power3.out'},t+.15);
+  tl.from('#s'+n+'e',{x:-24,opacity:0,duration:.45,ease:'expo.out'},t+.35);
+  tl.from('#s'+n+'h',{y:43,opacity:0,duration:.78,ease:'power4.out'},t+.5);
+  tl.from('#s'+n+'p',{opacity:0,duration:.55,ease:'sine.out'},t+.9);
+  tl.from('#s'+n+'m',{x:-20,opacity:0,duration:.5,ease:'power2.out'},t+1.2);
+  if(n===1)tl.from('#s1n',{x:-20,opacity:0,duration:.48,ease:'back.out(1.6)'},t+1.48);
+  if(n===1)tl.from('#s1b',{x:90,duration:.8,ease:'power1.out'},t+.43); else tl.from('#s'+n+'b',{x:90,opacity:0,duration:.8,ease:'power1.out'},t+.43);
+  tl.from('#s'+n+'f',{y:18,opacity:0,duration:.5,ease:'power2.out'},t+1.55);
+}
+enter(1,0);
+tl.to('#s1img',{scale:1.035,duration:6.1,ease:'sine.inOut'},2.05);
+tl.to('#s1',{x:-1280,duration:.55,ease:'power3.inOut'},8.4);
+tl.fromTo('#s2',{x:1280,opacity:1},{x:0,opacity:1,duration:.55,ease:'power3.inOut'},8.4);
+enter(2,8.98);
+tl.from('#buffer-hero',{opacity:0,scale:.65,duration:.36,ease:'back.out(1.7)'},10.25);
+tl.to('#buffer-hero',{y:137,duration:4.0,ease:'power1.in'},10.45);
+tl.from('#buffer-key',{scale:.65,opacity:0,duration:.36,ease:'back.out(1.8)'},12.85);
+tl.from('#buffer-window',{x:30,opacity:0,duration:.42,ease:'expo.out'},13.1);
+tl.to('#buffer-hero',{y:24,duration:2.1,ease:'power3.out'},14.45);
+tl.from('#buffer-info',{y:18,opacity:0,duration:.5,ease:'power2.out'},14.55);
+tl.to('#s2',{x:-1280,duration:.55,ease:'power3.inOut'},18.65);
+tl.fromTo('#s3',{x:1280,opacity:1},{x:0,opacity:1,duration:.55,ease:'power3.inOut'},18.65);
+enter(3,19.25);
+tl.from('#coyote-hero',{opacity:0,scale:.65,duration:.36,ease:'back.out(1.7)'},20.75);
+tl.to('#coyote-hero',{x:70,y:8,duration:2.2,ease:'sine.inOut'},21.1);
+tl.from('#coyote-key',{scale:.65,opacity:0,duration:.36,ease:'back.out(1.8)'},23.3);
+tl.from('#coyote-window',{x:30,opacity:0,duration:.42,ease:'expo.out'},23.55);
+tl.to('#coyote-hero',{x:118,y:-110,duration:2.5,ease:'power3.out'},23.6);
+tl.from('#coyote-info',{y:18,opacity:0,duration:.5,ease:'power2.out'},24.1);
+window.__timelines['jump-assist']=tl;
+</script>
+</body>
+</html>

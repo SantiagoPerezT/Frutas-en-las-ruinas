@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dgfnosaoyo7rj"]
+
+[ext_resource type="PackedScene" path="res://scenes/game_api.tscn" id="game_api"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="hud"]
+[ext_resource type="PackedScene" uid="uid://ch2iwnh5esmvy" path="res://scenes/level_01.tscn" id="level_1"]
+[ext_resource type="PackedScene" path="res://scenes/level_02.tscn" id="level_2"]
+[ext_resource type="PackedScene" path="res://scenes/level_03.tscn" id="level_3"]
+[ext_resource type="PackedScene" path="res://scenes/level_04.tscn" id="level_4"]
+[ext_resource type="PackedScene" path="res://scenes/map_maker.tscn" id="map_maker"]
+[ext_resource type="PackedScene" uid="uid://bs1db18tfg7m2" path="res://scenes/menu.tscn" id="menu"]
+[ext_resource type="PackedScene" path="res://scenes/story_panel.tscn" id="story_panel"]
+[ext_resource type="Script" uid="uid://ddtgjisv3g6fc" path="res://scripts/world.gd" id="world"]
+
+[node name="FrutaEnLasRuinas" type="Node2D" unique_id=322731553]
+script = ExtResource("world")
+
+[node name="LevelCollection" type="Node2D" parent="." unique_id=1475026695]
+
+[node name="Level01" parent="LevelCollection" unique_id=229046078 instance=ExtResource("level_1")]
+
+[node name="Level02" parent="LevelCollection" unique_id=228129062 instance=ExtResource("level_2")]
+visible = false
+
+[node name="Level03" parent="LevelCollection" unique_id=242741165 instance=ExtResource("level_3")]
+visible = false
+
+[node name="Level04" parent="LevelCollection" unique_id=901160085 instance=ExtResource("level_4")]
+visible = false
+
+[node name="HUD" parent="." unique_id=1766628361 instance=ExtResource("hud")]
+visible = false
+
+[node name="Menu" parent="." unique_id=2091828668 instance=ExtResource("menu")]
+
+[node name="GameApi" parent="." unique_id=1915488909 instance=ExtResource("game_api")]
+
+[node name="StoryPanel" parent="." unique_id=899566004 instance=ExtResource("story_panel")]
+visible = false
+
+[node name="MapMaker" parent="." unique_id=143608169 instance=ExtResource("map_maker")]
+visible = false

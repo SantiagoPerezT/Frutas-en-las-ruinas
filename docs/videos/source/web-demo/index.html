@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, height=720">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+@font-face{font-family:'Space Grotesk';src:url('assets/fonts/space-grotesk.woff2') format('woff2');font-style:normal;font-weight:300 800;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('assets/fonts/dm-mono-400.woff2') format('woff2');font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:'DM Mono';src:url('assets/fonts/dm-mono-500.woff2') format('woff2');font-style:normal;font-weight:500 700;font-display:swap}
+*{box-sizing:border-box}html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#102c27}
+body{font-family:'Space Grotesk',sans-serif;color:#eef4d4}
+#root{position:relative;width:1280px;height:720px;overflow:hidden}
+.scene{position:absolute;inset:0;width:1280px;height:720px;overflow:hidden;background:#102c27}
+#s1{z-index:1}#s2{z-index:2;opacity:0}#s3{z-index:3;opacity:0}
+.scene-content{width:100%;height:100%;padding:52px 60px 36px;display:flex;flex-direction:column;gap:26px}
+.topbar{display:flex;justify-content:space-between;align-items:center;min-height:42px;border-bottom:1px solid #456c58;padding-bottom:19px}
+.brand{color:#e4c869;font:700 21px 'DM Mono',monospace;letter-spacing:.08em}
+.mark{display:inline-grid;place-items:center;width:30px;height:30px;margin-right:12px;color:#102c27;background:#e4c869}
+.chapter{color:#d5dfc5;font:16px 'DM Mono',monospace;letter-spacing:.12em;font-variant-numeric:tabular-nums}
+.bodyrow{display:flex;gap:32px;align-items:stretch;flex:1;min-height:0}
+.copy{width:370px;flex:none;display:flex;flex-direction:column;justify-content:center;padding-bottom:16px}
+.eyebrow{color:#e4c869;font:16px 'DM Mono',monospace;letter-spacing:.12em;margin:0 0 22px}
+h1{max-width:370px;font-size:68px;line-height:.98;letter-spacing:-.055em;font-weight:800;margin:0 0 28px}
+p{color:#d6e2d0;font-size:23px;line-height:1.36;font-weight:350;margin:0}
+.chip{align-self:flex-start;margin-top:34px;padding:11px 16px;background:#e4c869;color:#102c27;font:700 16px 'DM Mono',monospace;letter-spacing:.05em}
+.browser{width:760px;height:462px;flex:none;align-self:center;overflow:hidden;border:2px solid #e4c869;background:#1c4035;box-shadow:13px 13px 0 #0a211b}
+.browserbar{height:33px;padding:8px 13px;display:flex;align-items:center;justify-content:space-between;color:#e4c869;border-bottom:1px solid #456c58;background:#1c4035;font:13px 'DM Mono',monospace;letter-spacing:.07em}
+.dots{letter-spacing:.22em}.viewport{width:756px;height:426px;overflow:hidden;position:relative}.viewport img{display:block;width:756px;height:426px;object-fit:cover;transform-origin:center}
+.footer{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #456c58;padding-top:18px;font:15px 'DM Mono',monospace;color:#b6d0b7;letter-spacing:.04em}
+.footer strong{color:#e4c869;font-weight:500}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="web-demo" data-start="0" data-duration="30" data-width="1280" data-height="720" data-track-index="0">
+<section id="s1" class="scene"><div class="scene-content">
+  <div id="s1top" class="topbar"><div class="brand"><span class="mark">✦</span>FRUTA EN LAS RUINAS</div><div class="chapter">01 / PANEL WEB</div></div>
+  <div class="bodyrow"><div class="copy"><div id="s1e" class="eyebrow">ARCHIVO DE EXPEDICIONES</div><h1 id="s1h">Cada segundo cuenta.</h1><p id="s1p">Una vista de partidas, niveles, frutas y monedas de los jugadores.</p><div id="s1c" class="chip">DATOS DEL JUEGO ↗</div></div>
+  <div id="s1b" class="browser"><div class="browserbar"><span>PORTADA / MÉTRICAS</span><span class="dots">● ● ●</span></div><div class="viewport"><img id="s1i" src="assets/dashboard.png" alt="Captura real de la portada del panel web"></div></div></div>
+  <div id="s1f" class="footer"><span>Captura del proyecto en funcionamiento</span><strong>30 SEGUNDOS DE RECORRIDO</strong></div>
+</div></section>
+<section id="s2" class="scene"><div class="scene-content">
+  <div id="s2top" class="topbar"><div class="brand"><span class="mark">✦</span>FRUTA EN LAS RUINAS</div><div class="chapter">02 / ANÁLISIS</div></div>
+  <div class="bodyrow"><div class="copy"><div id="s2e" class="eyebrow">CURVA ENTRE NIVELES</div><h1 id="s2h">Compara la dificultad.</h1><p id="s2p">La gráfica muestra el tiempo promedio para terminar cada mapa y permite seleccionar el dato a estudiar.</p><div id="s2c" class="chip">TIEMPO POR MAPA ↗</div></div>
+  <div id="s2b" class="browser"><div class="browserbar"><span>ANÁLISIS / COMPARA LOS MAPAS</span><span class="dots">● ● ●</span></div><div class="viewport"><img id="s2i" src="assets/analytics.jpg" alt="Captura real de gráfica de tiempo promedio por mapa"></div></div></div>
+  <div id="s2f" class="footer"><span>Tiempo promedio · partidas terminadas</span><strong>SELECCIÓN POR MAPA</strong></div>
+</div></section>
+<section id="s3" class="scene"><div class="scene-content">
+  <div id="s3top" class="topbar"><div class="brand"><span class="mark">✦</span>FRUTA EN LAS RUINAS</div><div class="chapter">03 / COMUNIDAD</div></div>
+  <div class="bodyrow"><div class="copy"><div id="s3e" class="eyebrow">NUEVAS RUTAS</div><h1 id="s3h">Mapas de la comunidad.</h1><p id="s3p">Explora cada escenario creado con Map Maker y guardado en SQL Server.</p><div id="s3c" class="chip">VISTA PREVIA DE MAPAS ↗</div></div>
+  <div id="s3b" class="browser"><div class="browserbar"><span>MAPAS / GALERÍA</span><span class="dots">● ● ●</span></div><div class="viewport"><img id="s3i" src="assets/maps.jpg" alt="Captura real de mapas creados por la comunidad"></div></div></div>
+  <div id="s3f" class="footer"><span>Juego y web comparten mapas y estadísticas</span><strong>FRUTA EN LAS RUINAS</strong></div>
+</div></section>
+</div>
+<script>
+window.__timelines=window.__timelines||{};
+const tl=gsap.timeline({paused:true});
+function enter(n,t){
+  tl.from('#s'+n+'top',{y:-28,opacity:0,duration:.66,ease:'power3.out'},t+.15);
+  tl.from('#s'+n+'e',{x:-25,opacity:0,duration:.45,ease:'expo.out'},t+.36);
+  tl.from('#s'+n+'h',{y:44,opacity:0,duration:.78,ease:'power4.out'},t+.5);
+  tl.from('#s'+n+'p',{opacity:0,duration:.55,ease:'sine.out'},t+.89);
+  tl.from('#s'+n+'c',{scale:.75,opacity:0,duration:.41,ease:'back.out(1.7)'},t+1.21);
+  tl.from('#s'+n+'b',{x:90,opacity:0,duration:.8,ease:'power2.out'},t+.43);
+  tl.from('#s'+n+'f',{y:18,opacity:0,duration:.5,ease:'power1.out'},t+1.35);
+}
+enter(1,0);
+tl.to('#s1i',{scale:1.035,duration:8.1,ease:'sine.inOut'},1.5);
+tl.to('#s1',{x:-1280,duration:.55,ease:'power3.inOut'},9.75);
+tl.fromTo('#s2',{x:1280,opacity:1},{x:0,opacity:1,duration:.55,ease:'power3.inOut'},9.75);
+enter(2,10.18);
+tl.to('#s2i',{scale:1.045,duration:7.5,ease:'sine.inOut'},12.05);
+tl.to('#s2',{x:-1280,duration:.55,ease:'power3.inOut'},19.7);
+tl.fromTo('#s3',{x:1280,opacity:1},{x:0,opacity:1,duration:.55,ease:'power3.inOut'},19.7);
+enter(3,20.15);
+tl.to('#s3i',{scale:1.04,duration:7.4,ease:'sine.inOut'},22.05);
+window.__timelines['web-demo']=tl;
+</script>
+</body>
+</html>

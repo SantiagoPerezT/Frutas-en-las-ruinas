@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/story_panel.gd" id="story_script"]
+
+[sub_resource type="StyleBoxFlat" id="CardStyle"]
+bg_color = Color(0.12, 0.18, 0.24, 0.98)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.81, 0.38, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="StoryPanel" type="CanvasLayer"]
+layer = 12
+script = ExtResource("story_script")
+
+[node name="Overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.08, 0.12, 0.76)
+
+[node name="Card" type="PanelContainer" parent="Overlay"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -130.0
+offset_right = 325.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("CardStyle")
+
+[node name="VBox" type="VBoxContainer" parent="Overlay/Card"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Heading" type="Label" parent="Overlay/Card/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.87, 0.54, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+text = "Capítulo 1"
+
+[node name="Body" type="Label" parent="Overlay/Card/VBox"]
+custom_minimum_size = Vector2(580, 112)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "La historia del capítulo aparecerá aquí."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="Overlay/Card/VBox"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "Continuar"

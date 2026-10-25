@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_player"]
+[ext_resource type="Script" path="res://scripts/death_shake_camera.gd" id="2_death_shake"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/jump.wav" id="3_jump_sound"]
+
+[sub_resource type="RectangleShape2D" id="PlayerCollision"]
+size = Vector2(20, 27)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_player")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("PlayerCollision")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_death_shake")
+enabled = true
+limit_left = 0
+limit_top = 0
+limit_right = 2880
+limit_bottom = 540
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jump_sound")
+volume_db = -7.0
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+wait_time = 0.12
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="died" from="." to="Camera2D" method="_on_player_died"]
